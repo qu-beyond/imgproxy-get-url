@@ -37,7 +37,31 @@ module.exports.setup = function(app) {
    * @swagger
    * /url:
    *   post:
-   *     description: Get URL
+   *     description: |
+   *        **Get imgproxy URL**
+   *
+   *        This endpoint can consume the parameters in `application/x-www-form-urlencoded` or `application/json`.
+   *
+   *        For example, this request:
+   *        ```
+   *        curl --location --request POST 'http://localhost:3000/api/url/' \
+   *        --header 'Content-Type: application/x-www-form-urlencoded' \
+   *        --data-urlencode 'source_url=https://test.com/image.jpg' \
+   *        --data-urlencode 'source_url=https://test.com/image2.jpg' \
+   *        --data-urlencode 'width=600' \
+   *        --data-urlencode 'height=300'
+   *        ```
+   *
+   *        is exactly the same as this one:
+   *        ```
+   *        curl --location --request POST 'http://localhost:3000/api/url/' \
+   *        --header 'Content-Type: application/json' \
+   *        --data-raw '{
+   *            "source_url": ["https://test.com/image.jpg", "https://test.com/image2.jpg"],
+   *            "width": 600,
+   *            "height": 300
+   *        }'
+   *        ```
    *     tags: [URL]
    *     consumes:
    *       - application/x-www-form-urlencoded
