@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+  imgproxy-get-url:
+    depends_on:
+      - imgproxy
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      IMGPROXY_URL: http://localhost:8080
+      IMGPROXY_KEY: d8aab7d02f0fa05099f3e427d8384780
+      IMGPROXY_SALT: 3e320075de23b19a4e887683e2fda133
+
+  imgproxy:
+    image: darthsim/imgproxy:latest
+    ports:
+      - "8080:8080"
+    environment:
+      IMGPROXY_KEY: d8aab7d02f0fa05099f3e427d8384780
+      IMGPROXY_SALT: 3e320075de23b19a4e887683e2fda133
