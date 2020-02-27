@@ -1,6 +1,6 @@
 {
   "name": "imgproxy-get-url",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "imgProxy URL API",
   "author": "Martin Bereciartua",
   "private": true,
@@ -19,6 +19,7 @@
     "cross-env": "^5.2.0",
     "dotenv": "^8.2.0",
     "express": "^4.16.4",
+    "express-basic-auth": "^1.2.0",
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.3.2",
     "swagger-jsdoc": "^3.5.0",
