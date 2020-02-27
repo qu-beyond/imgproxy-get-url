@@ -1,6 +1,6 @@
 {
   "name": "imgproxy-get-url",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "imgProxy URL API",
   "author": "Martin Bereciartua",
   "private": true,
