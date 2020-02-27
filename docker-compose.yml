@@ -8,6 +8,7 @@ services:
     ports:
       - "3000:3000"
     environment:
+      NODE_ENV: production
       IMGPROXY_URL: http://localhost:8080
       IMGPROXY_KEY: d8aab7d02f0fa05099f3e427d8384780
       IMGPROXY_SALT: 3e320075de23b19a4e887683e2fda133
