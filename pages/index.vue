@@ -91,6 +91,7 @@
               ></b-slider>
             </b-field>
             <b-field
+              v-if="maxBytesEnabled"
               :label="
                 form.max_bytes
                   ? `Max Bytes (${form.max_bytes} bytes)`
@@ -171,6 +172,9 @@ export default {
         params.crop = `${this.form.width}:${this.form.height}`
       }
       return params
+    },
+    maxBytesEnabled() {
+      return ['jpg', 'webp', 'heic', 'tiff'].includes(this.form.format)
     }
   },
   watch: {
