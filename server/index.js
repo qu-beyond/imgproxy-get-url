@@ -3,6 +3,7 @@ const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 const app = express()
 const basicAuth = require('express-basic-auth')
+const Sentry = require('@sentry/node')
 const configNuxt = require('../nuxt.config.js')
 const config = require('../config')
 const api = require('./api')
@@ -23,6 +24,15 @@ async function start() {
     await builder.build()
   }
 
+  // Enable Sentry
+  if (config.sentryDSN) {
+    Sentry.init({ dsn: config.sentryDSN })
+    app.use(Sentry.Handlers.requestHandler())
+    app.use(Sentry.Handlers.errorHandler())
+    consola.ready('Sentry enabled')
+  }
+
+  // Enable Basic Auth
   if (config.basicAuthUsers) {
     app.use(
       basicAuth({
