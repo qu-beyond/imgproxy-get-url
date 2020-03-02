@@ -34,5 +34,6 @@ module.exports = {
     key: process.env.IMGPROXY_KEY || null,
     salt: process.env.IMGPROXY_SALT || null
   },
-  basicAuthUsers: getBasicAuthUsers(process.env.BASIC_AUTH_USERS) // Format: test:1234,test2:password
+  basicAuthUsers: getBasicAuthUsers(process.env.BASIC_AUTH_USERS), // Format: test:1234,test2:password
+  sentryDSN: process.env.SENTRY_DSN || null
 }
